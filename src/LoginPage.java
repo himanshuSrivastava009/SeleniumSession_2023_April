@@ -1,34 +1,34 @@
 import java.io.IOException;
 import java.util.Properties;
-import java.util.ResourceBundle;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.selenium.constants.ConstatsFile;
 
 import SeleniumBrower.setup.com.DriverSetup;
-import pagefacotry.com.pageFacotryExample;
 
-public class LaunchBrowserTest extends DriverSetup{
+public class LoginPage {
 
 	static Properties prop;
-	void test() {
-		
-	}
-	public static void main(String[] args) throws IOException {
-	
+	static WebDriver driver;
+	static PageFactoryExample pg;
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+
 		DriverSetup setup = new DriverSetup();
 		prop = setup.init_Properties(ConstatsFile.PATH.toString());
 		try {
-			WebDriver driver =setup.setupBrowser("Chrome", prop.getProperty("web.server.url").toString(),prop );
+			driver = setup.setupBrowser("Chrome", prop.getProperty("web.server.url").toString(), prop);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		pg = new PageFactoryExample(driver);
 		
-	
-		setup.tearDown();
+		Thread.sleep(3000);
+		pg.getUsername().sendKeys("admin");
+		//setup.tearDown();
+
 	}
 
 }

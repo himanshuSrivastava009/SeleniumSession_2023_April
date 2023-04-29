@@ -1,0 +1,9 @@
+https://www.selenium.dev/documentation/webdriver/
+
+1. PageFactory - Page object Design pattern where @FindBy is used for Webelements and initElements
+is used to initializig the webElements
+@FindBy(id="username")
+ WebElement username;
+ 
+ https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/PageFactory.html
+ https://www.browserstack.com/guide/wait-commands-in-selenium-webdriver
